@@ -1,0 +1,33 @@
+﻿@using SubirArchivoVT.Models
+@model Persona
+
+<h2>Perfil</h2>
+<style>
+    .imagen {
+        margin-top: 40px;
+    }
+</style>
+
+
+@using (Html.BeginForm("SubirArchivo", "FileUpload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <label>Nombre:</label>
+    <input name="nombre" value="@Model.Nombre" />
+    <label>Edad:</label>
+    <input name="Edad" value="@Model.Edad" />
+
+    <button class="btn-success" type="submit">Actualizar Imagen </button>
+
+    <div class="imagen">
+        <table>
+            <tr>
+                <td> <input type="file" name="file" class="form-control-file" /></td>
+                <td><img src="~/ImagenesSubidas/@Model.Imagen" height="150px" /></td>
+            </tr>
+        </table>
+    </div>
+
+
+}
+
+@ViewBag.xd
